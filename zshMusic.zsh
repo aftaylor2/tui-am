@@ -36,6 +36,13 @@ music() {
       -current | -c)
         osascript $dir/current.applescript "$2"
         ;;
+      -query | -q)
+        if [[ -z $2 ]]; then
+          echo "You need to pass a search query"
+        else
+          osascript $dir/query.applescript "$2"
+        fi
+        ;;
       -help | -h)
         help
         ;;
@@ -92,6 +99,11 @@ cmd7="-c"
 des7="Shows current track"
 ex7="music -c"
 
+com8="-query"
+cmd8="-q"
+des8="Search for songs"
+ex8="music -q 'Song Name'"
+
 
 echo ''
 echo "  ;;;;;; ███████ ███████ ██   ██ ███    ███ ██    ██ ███████ ██  ██████ "
@@ -122,5 +134,7 @@ sleep 0.01
 printf "%-10s %-5s %-25s %-10s\n" "$com6" "$cmd6" "$des6" "$ex6"
 sleep 0.01
 printf "%-10s %-5s %-25s %-10s\n" "$com7" "$cmd7" "$des7" "$ex7"
+sleep 0.01
+printf "%-10s %-5s %-25s %-10s\n" "$com8" "$cmd8" "$des8" "$ex8"
 sleep 0.01
 }
